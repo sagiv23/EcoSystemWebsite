@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="SagivProject.Site1" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Sagiv Yosilevsky</title>
+
+    <link href="StyleSheet1.css" rel="stylesheet" />
+
+    <script>
+        var myvar = setInterval(function () { myTimer() }, 500);
+        function myTimer() {
+            var d = new Date();
+            var t1 = d.toLocaleTimeString();
+            var t2 = d.toLocaleDateString();
+            var t = "שעה" + "<br>" + t1 + "<br>" + "תאריך" + "<br>" + t2;
+            document.getElementById("myTime").innerHTML = t;
+        }
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <table class = "Table" id = "container" cellpadding = "5" cellspacing = "0" border = "1">
+        <tr style = "height: 80px; background-color: rgb(0, 0, 0, 0.10);">
+            <td class = "Login_In_Out_Admin">
+                <%= loginMsg %>
+            </td>
+
+            <td class = "Logo">
+               <center>
+                   <a href = "index.aspx"><img src="pics/logo.png"></a>
+               </center>  
+            </td>
+
+            <td class = "Clock">
+                <h3 id = "myTime"></h3>
+                <h3 id = "myDate"></h3>
+            </td>
+        </tr>
+
+        <tr class = "Nav">
+            <td colspan = "3">
+                <%= nav %>
+            </td>
+        </tr>
+
+        <tr class = "In_The_Page">
+            <td colspan = "3" valign = "top">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+
+        <tr class = "Under_Page">
+            <td colspan = "3">
+                <a href = "mailto:sagivyo2311@gmail.com">האתר נבנה על ידי שגיב יוסילבסקי</a>
+                <h3 style = "color: white; direction: rtl;">מונה מבקרים באתר: <%=Application["counter"] %></h3>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

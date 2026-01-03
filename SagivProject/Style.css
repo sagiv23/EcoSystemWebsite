@@ -1,0 +1,116 @@
+﻿body {
+    background-color: rgb(166, 233, 224);
+    direction: rtl;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 90px;
+    color: rgb(36, 123, 160);
+    font-family: 'Rajdhani', sans-serif;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-family: 'Rajdhani', sans-serif;
+    color: rgb(51, 153, 153);
+    font-weight: bold;
+    font-size: 60px;
+    text-decoration: underline;
+}
+
+p {
+    color: white;
+    margin-top: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 30px;
+}
+
+h3 {
+    color: rgb(51, 153, 153);
+    margin-top: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 30px;
+}
+
+a {
+    margin: 10px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    font-size: 29px;
+}
+
+a:hover {
+    color: rgb(51, 153, 153);
+    font-weight: unset;
+    transition: 1s;
+}
+
+img {
+    height: 235px;
+    margin: 1px;
+}
+
+.img_float {
+    float: right;
+}
+
+.img_block {
+    margin-top: 100px;
+    text-align: center;
+}
+
+video {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.Table {
+    margin: 0px auto;
+    border: 1px solid silver; 
+}
+
+.Login_Register {
+    width: 15%;
+    border: 1px solid silver; 
+}
+
+.Logo {
+    width: 85%;
+    border: 1px solid silver; 
+}
+
+.Clock {
+    border: 1px solid silver; 
+    text-align: center
+}
+
+.Nav {
+    width: 100%;
+    height: 50px;
+    border: 1px solid silver; 
+    background-color: rgb(36, 123, 160);
+    text-align: center;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.In_The_Page {
+    border: 1px solid silver; 
+    width: 100%;
+    direction: rtl;
+}
+
+.Under_Page {
+    border: 1px solid silver; 
+    text-align: center;
+    background-color: rgb(36, 123, 160);
+    width: 100%;
+    height: 50px;
+}

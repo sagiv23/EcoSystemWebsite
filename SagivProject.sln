@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34601.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagivProject", "SagivProject\SagivProject.csproj", "{09FF3AD1-9257-41BD-9441-05CBC330A6E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09FF3AD1-9257-41BD-9441-05CBC330A6E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09FF3AD1-9257-41BD-9441-05CBC330A6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09FF3AD1-9257-41BD-9441-05CBC330A6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09FF3AD1-9257-41BD-9441-05CBC330A6E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D2A34E6-A69D-4192-8678-9ED4207A119B}
+	EndGlobalSection
+EndGlobal

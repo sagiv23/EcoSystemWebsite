@@ -1,0 +1,658 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09FF3AD1-9257-41BD-9441-05CBC330A6E6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SagivProject</RootNamespace>
+    <AssemblyName>SagivProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44396</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.44.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.44.1\lib\net472\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Identity, Version=1.13.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Identity.1.13.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\lib\net452\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\lib\net452\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\lib\net452\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.22.0\lib\net452\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\lib\net452\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.22.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.8\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Identity.Client, Version=4.65.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.65.0\lib\net472\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=4.65.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.4.65.0\lib\netstandard2.0\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.6.35.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ClientModel, Version=1.1.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ClientModel.1.1.0\lib\netstandard2.0\System.ClientModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.1\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.6.0.0\lib\net461\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.4.5.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.10\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddManager.aspx" />
+    <Content Include="ComplexQuery.aspx" />
+    <Content Include="Definition_Ecosystem.aspx" />
+    <Content Include="DeleteManager.aspx" />
+    <Content Include="DeleteRecordManager.aspx" />
+    <Content Include="DeleteRecordUser.aspx" />
+    <Content Include="DeleteUser.aspx" />
+    <Content Include="Ecosystem_Future.aspx" />
+    <Content Include="Ecosystem_Now.aspx" />
+    <Content Include="Ecosystem_Past.aspx" />
+    <Content Include="Gallery.aspx" />
+    <Content Include="Gallery_pic1.aspx" />
+    <Content Include="Gallery_pic10.aspx" />
+    <Content Include="Gallery_pic11.aspx" />
+    <Content Include="Gallery_pic12.aspx" />
+    <Content Include="Gallery_pic13.aspx" />
+    <Content Include="Gallery_pic2.aspx" />
+    <Content Include="Gallery_pic3.aspx" />
+    <Content Include="Gallery_pic4.aspx" />
+    <Content Include="Gallery_pic5.aspx" />
+    <Content Include="Gallery_pic6.aspx" />
+    <Content Include="Gallery_pic7.aspx" />
+    <Content Include="Gallery_pic8.aspx" />
+    <Content Include="Gallery_pic9.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="kayamot.aspx" />
+    <Content Include="kayamot_earth.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="loginAdmin.aspx" />
+    <Content Include="logout.aspx" />
+    <Content Include="MakeAdmin.aspx" />
+    <Content Include="ManagerPage.aspx" />
+    <Content Include="pics\ecosystem\Air_Pollution.png" />
+    <Content Include="pics\ecosystem\Climate_Change.png" />
+    <Content Include="pics\ecosystem\damage1.png" />
+    <Content Include="pics\ecosystem\damage2.png" />
+    <Content Include="pics\ecosystem\damage3.png" />
+    <Content Include="pics\ecosystem\ecosystem1.png" />
+    <Content Include="pics\ecosystem\ecosystem2.png" />
+    <Content Include="pics\ecosystem\Energy.png" />
+    <Content Include="pics\ecosystem\Environmental_Quality.png" />
+    <Content Include="pics\ecosystem\future1.png" />
+    <Content Include="pics\ecosystem\future2.png" />
+    <Content Include="pics\ecosystem\future3.png" />
+    <Content Include="pics\ecosystem\Habitats.png" />
+    <Content Include="pics\ecosystem\mammals.png" />
+    <Content Include="pics\ecosystem\plants.png" />
+    <Content Include="pics\ecosystem\Runoff_Water.png" />
+    <Content Include="pics\ecosystem\Spinosaurus.png" />
+    <Content Include="pics\ecosystem\Tsunami.png" />
+    <Content Include="pics\gallery\pic1.png" />
+    <Content Include="pics\gallery\pic10.png" />
+    <Content Include="pics\gallery\pic11.png" />
+    <Content Include="pics\gallery\pic12.png" />
+    <Content Include="pics\gallery\pic13.png" />
+    <Content Include="pics\gallery\pic2.png" />
+    <Content Include="pics\gallery\pic3.png" />
+    <Content Include="pics\gallery\pic4.png" />
+    <Content Include="pics\gallery\pic5.png" />
+    <Content Include="pics\gallery\pic6.png" />
+    <Content Include="pics\gallery\pic7.png" />
+    <Content Include="pics\gallery\pic8.png" />
+    <Content Include="pics\gallery\pic9.png" />
+    <Content Include="pics\kayamot\kayamot1.png" />
+    <Content Include="pics\kayamot\kayamot2.png" />
+    <Content Include="pics\kayamot\kayamot3.png" />
+    <Content Include="pics\kayamot\kayamot4.png" />
+    <Content Include="pics\kayamot\kayamot5.png" />
+    <Content Include="pics\kayamot\kayamot6.png" />
+    <Content Include="pics\kayamot\kayamot7.png" />
+    <Content Include="pics\kayamot\kayamot8.png" />
+    <Content Include="pics\logo.png" />
+    <Content Include="pics\people\All_Gor\Movie.png" />
+    <Content Include="pics\people\All_Gor\USA.png" />
+    <Content Include="pics\people\Alon_Tal\Adam_Teva_Din.png" />
+    <Content Include="pics\people\Alon_Tal\Alon_Tal.png" />
+    <Content Include="pics\people\All_Gor\All_Gor.png" />
+    <Content Include="pics\people\Alon_Tal\book.png" />
+    <Content Include="pics\people\Amoz_Zhavi_and_Azaria_Alon\Amoz_Zhavi_and_Azaria_Alon.png" />
+    <Content Include="pics\people\Amoz_Zhavi_and_Azaria_Alon\Haganat.png" />
+    <Content Include="pics\people\Amoz_Zhavi_and_Azaria_Alon\Hula.png" />
+    <Content Include="pics\people\Benjamin_Kahn\Benjamin_Kahn.png" />
+    <Content Include="pics\people\Benjamin_Kahn\Clean.png" />
+    <Content Include="pics\people\Benjamin_Kahn\Zalul.png" />
+    <Content Include="pics\people\Hermann_Schapira\Hermann_Schapira.png" />
+    <Content Include="pics\people\Hermann_Schapira\Kakal.png" />
+    <Content Include="pics\people\Hermann_Schapira\Kongras.png" />
+    <Content Include="pics\people\Sylvia_Earle\Blue_Mission.png" />
+    <Content Include="pics\people\Sylvia_Earle\Ocean.png" />
+    <Content Include="pics\people\Sylvia_Earle\Sylvia_Earle.png" />
+    <Content Include="pics\Survey\color1.png" />
+    <Content Include="pics\Survey\color2.png" />
+    <Content Include="pics\Survey\color3.png" />
+    <Content Include="pics\Survey\color4.png" />
+    <Content Include="Pics_Main.aspx" />
+    <Content Include="register.aspx" />
+    <Content Include="Select_2008_And_Sport.aspx" />
+    <Content Include="Select_FirstNameIncludeD.aspx" />
+    <Content Include="Select_Male_Or_Prefix_050.aspx" />
+    <Content Include="ShowTableData.aspx" />
+    <Content Include="ShowTableDataManager.aspx" />
+    <Content Include="SimpleQuery.aspx" />
+    <Content Include="Source.aspx" />
+    <Content Include="Stories.aspx" />
+    <Content Include="Style\Style.css" />
+    <Content Include="Survey.aspx" />
+    <Content Include="UpdateUser.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddManager.aspx.cs">
+      <DependentUpon>AddManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddManager.aspx.designer.cs">
+      <DependentUpon>AddManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\Helper.cs" />
+    <Compile Include="ComplexQuery.aspx.cs">
+      <DependentUpon>ComplexQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplexQuery.aspx.designer.cs">
+      <DependentUpon>ComplexQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Definition_Ecosystem.aspx.cs">
+      <DependentUpon>Definition_Ecosystem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Definition_Ecosystem.aspx.designer.cs">
+      <DependentUpon>Definition_Ecosystem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteManager.aspx.cs">
+      <DependentUpon>DeleteManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteManager.aspx.designer.cs">
+      <DependentUpon>DeleteManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteRecordManager.aspx.cs">
+      <DependentUpon>DeleteRecordManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteRecordManager.aspx.designer.cs">
+      <DependentUpon>DeleteRecordManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteRecordUser.aspx.cs">
+      <DependentUpon>DeleteRecordUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteRecordUser.aspx.designer.cs">
+      <DependentUpon>DeleteRecordUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteUser.aspx.cs">
+      <DependentUpon>DeleteUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteUser.aspx.designer.cs">
+      <DependentUpon>DeleteUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ecosystem_Future.aspx.cs">
+      <DependentUpon>Ecosystem_Future.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ecosystem_Future.aspx.designer.cs">
+      <DependentUpon>Ecosystem_Future.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ecosystem_Now.aspx.cs">
+      <DependentUpon>Ecosystem_Now.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ecosystem_Now.aspx.designer.cs">
+      <DependentUpon>Ecosystem_Now.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ecosystem_Past.aspx.cs">
+      <DependentUpon>Ecosystem_Past.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ecosystem_Past.aspx.designer.cs">
+      <DependentUpon>Ecosystem_Past.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery.aspx.designer.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic1.aspx.cs">
+      <DependentUpon>Gallery_pic1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic1.aspx.designer.cs">
+      <DependentUpon>Gallery_pic1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic10.aspx.cs">
+      <DependentUpon>Gallery_pic10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic10.aspx.designer.cs">
+      <DependentUpon>Gallery_pic10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic11.aspx.cs">
+      <DependentUpon>Gallery_pic11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic11.aspx.designer.cs">
+      <DependentUpon>Gallery_pic11.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic12.aspx.cs">
+      <DependentUpon>Gallery_pic12.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic12.aspx.designer.cs">
+      <DependentUpon>Gallery_pic12.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic13.aspx.cs">
+      <DependentUpon>Gallery_pic13.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic13.aspx.designer.cs">
+      <DependentUpon>Gallery_pic13.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic2.aspx.cs">
+      <DependentUpon>Gallery_pic2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic2.aspx.designer.cs">
+      <DependentUpon>Gallery_pic2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic3.aspx.cs">
+      <DependentUpon>Gallery_pic3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic3.aspx.designer.cs">
+      <DependentUpon>Gallery_pic3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic4.aspx.cs">
+      <DependentUpon>Gallery_pic4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic4.aspx.designer.cs">
+      <DependentUpon>Gallery_pic4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic5.aspx.cs">
+      <DependentUpon>Gallery_pic5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic5.aspx.designer.cs">
+      <DependentUpon>Gallery_pic5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic6.aspx.cs">
+      <DependentUpon>Gallery_pic6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic6.aspx.designer.cs">
+      <DependentUpon>Gallery_pic6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic7.aspx.cs">
+      <DependentUpon>Gallery_pic7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic7.aspx.designer.cs">
+      <DependentUpon>Gallery_pic7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic8.aspx.cs">
+      <DependentUpon>Gallery_pic8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic8.aspx.designer.cs">
+      <DependentUpon>Gallery_pic8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery_pic9.aspx.cs">
+      <DependentUpon>Gallery_pic9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery_pic9.aspx.designer.cs">
+      <DependentUpon>Gallery_pic9.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kayamot.aspx.cs">
+      <DependentUpon>kayamot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kayamot.aspx.designer.cs">
+      <DependentUpon>kayamot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kayamot_earth.aspx.cs">
+      <DependentUpon>kayamot_earth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kayamot_earth.aspx.designer.cs">
+      <DependentUpon>kayamot_earth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loginAdmin.aspx.cs">
+      <DependentUpon>loginAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginAdmin.aspx.designer.cs">
+      <DependentUpon>loginAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MakeAdmin.aspx.cs">
+      <DependentUpon>MakeAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MakeAdmin.aspx.designer.cs">
+      <DependentUpon>MakeAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerPage.aspx.cs">
+      <DependentUpon>ManagerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagerPage.aspx.designer.cs">
+      <DependentUpon>ManagerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pics_Main.aspx.cs">
+      <DependentUpon>Pics_Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pics_Main.aspx.designer.cs">
+      <DependentUpon>Pics_Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Select_2008_And_Sport.aspx.cs">
+      <DependentUpon>Select_2008_And_Sport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Select_2008_And_Sport.aspx.designer.cs">
+      <DependentUpon>Select_2008_And_Sport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Select_FirstNameIncludeD.aspx.cs">
+      <DependentUpon>Select_FirstNameIncludeD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Select_FirstNameIncludeD.aspx.designer.cs">
+      <DependentUpon>Select_FirstNameIncludeD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Select_Male_Or_Prefix_050.aspx.cs">
+      <DependentUpon>Select_Male_Or_Prefix_050.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Select_Male_Or_Prefix_050.aspx.designer.cs">
+      <DependentUpon>Select_Male_Or_Prefix_050.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowTableData.aspx.cs">
+      <DependentUpon>ShowTableData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowTableData.aspx.designer.cs">
+      <DependentUpon>ShowTableData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowTableDataManager.aspx.cs">
+      <DependentUpon>ShowTableDataManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowTableDataManager.aspx.designer.cs">
+      <DependentUpon>ShowTableDataManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleQuery.aspx.cs">
+      <DependentUpon>SimpleQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SimpleQuery.aspx.designer.cs">
+      <DependentUpon>SimpleQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Source.aspx.cs">
+      <DependentUpon>Source.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source.aspx.designer.cs">
+      <DependentUpon>Source.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Stories.aspx.cs">
+      <DependentUpon>Stories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Stories.aspx.designer.cs">
+      <DependentUpon>Stories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Survey.aspx.cs">
+      <DependentUpon>Survey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Survey.aspx.designer.cs">
+      <DependentUpon>Survey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateUser.aspx.cs">
+      <DependentUpon>UpdateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateUser.aspx.designer.cs">
+      <DependentUpon>UpdateUser.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationInsights.config" />
+    <None Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54220</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44396/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.22.0\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.22.0\build\Microsoft.ApplicationInsights.Web.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.22.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.22.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.22.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.22.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.22.0\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
